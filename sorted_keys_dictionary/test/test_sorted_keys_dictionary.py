@@ -1,5 +1,5 @@
 from sorted_keys_dictionary.sorted_keys_dictionary import SortedKeysDictionary
-from collections import Container, Iterable
+from collections import Container, Iterable, Sized
 
 class TestSortedKeysDictionary:
     def test_initializer_accepts_dictionary(self):
@@ -54,3 +54,11 @@ class TestSortedKeysDictionary:
         s = SortedKeysDictionary({"cats": "yes please", "dogs": "no thanks"})
         assert "cats" in s
         assert "tigers" not in s
+
+    def test_class_is_sized(self):
+        assert issubclass(SortedKeysDictionary, Sized)
+
+    def test_len_returns_number_of_unique_keys(self):
+        s = SortedKeysDictionary({"one": 1, "two": 2, "three": 3})
+        s.set("two", 22)
+        assert len(s) == 3

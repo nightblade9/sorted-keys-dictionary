@@ -14,7 +14,6 @@ class SortedKeysDictionary:
         self._data[key] = value
 
     # Iterable
-
     def __iter__(self):
         # Return a generator that sorts data
         for item in sorted(self._data.__iter__()):
@@ -23,3 +22,7 @@ class SortedKeysDictionary:
     # Container. Not needed unless we don't want to test issubclass(SortedKeysDictionary, Container).
     def __contains__(self, key):
         return key in self._data
+
+    # Sized
+    def __len__(self):
+        return len(self._data)
