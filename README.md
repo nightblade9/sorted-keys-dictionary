@@ -1,0 +1,1 @@
+Part of the course "Python, Beyond the Fundamentals" on Pluralsight included implementing several protocols (`Container`, `Sized`, `Iterable`, `Sequence`) on a novel collection. To soldify these concepts, I'm going to implement a unique data structure: a dictionary where the keys are guaranteed to remain in order (and sorted).
