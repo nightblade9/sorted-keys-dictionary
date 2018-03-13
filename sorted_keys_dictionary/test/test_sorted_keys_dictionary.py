@@ -1,4 +1,5 @@
 from sorted_keys_dictionary.sorted_keys_dictionary import SortedKeysDictionary
+from collections import Iterable
 
 class TestSortedKeysDictionary:
     def test_initializer_accepts_dictionary(self):
@@ -27,7 +28,11 @@ class TestSortedKeysDictionary:
         s.set("monkeys", 99)
         assert s.get("monkeys") == 99
 
-    def test_object_is_iterable_and_sorted(self):
+    #def test_class_is_iterable(self):
+    #    s = SortedKeysDictionary()
+    #    assert issubclass(s, Iterable)
+
+    def test_class_is_iterable_and_sorted(self):
         s = SortedKeysDictionary({"b": 7, "a": 1})
         actual = []
 
