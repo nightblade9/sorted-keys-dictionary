@@ -1,5 +1,5 @@
 from sorted_keys_dictionary.sorted_keys_dictionary import SortedKeysDictionary
-from collections import Iterable
+from collections import Container, Iterable
 
 class TestSortedKeysDictionary:
     def test_initializer_accepts_dictionary(self):
@@ -28,9 +28,8 @@ class TestSortedKeysDictionary:
         s.set("monkeys", 99)
         assert s.get("monkeys") == 99
 
-    #def test_class_is_iterable(self):
-    #    s = SortedKeysDictionary()
-    #    assert issubclass(s, Iterable)
+    def test_class_is_iterable(self):
+       assert issubclass(SortedKeysDictionary, Iterable)
 
     def test_class_is_iterable_and_sorted(self):
         s = SortedKeysDictionary({"b": 7, "a": 1})
@@ -47,3 +46,11 @@ class TestSortedKeysDictionary:
         assert actual[0] == "b"
         assert actual[1] == "c"
         assert actual[2] == "d"
+
+    def test_class_implements_container_protocol(self):
+        assert issubclass(SortedKeysDictionary, Container)
+
+    def test_in_returns_true_for_existing_keys(self):
+        s = SortedKeysDictionary({"cats": "yes please", "dogs": "no thanks"})
+        assert "cats" in s
+        assert "tigers" not in s

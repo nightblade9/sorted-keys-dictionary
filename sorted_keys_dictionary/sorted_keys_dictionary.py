@@ -19,3 +19,7 @@ class SortedKeysDictionary:
         # Return a generator that sorts data
         for item in sorted(self._data.__iter__()):
             yield item
+
+    # Container. Not needed unless we don't want to test issubclass(SortedKeysDictionary, Container).
+    def __contains__(self, key):
+        return key in self._data
