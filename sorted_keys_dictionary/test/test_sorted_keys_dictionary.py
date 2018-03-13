@@ -26,3 +26,13 @@ class TestSortedKeysDictionary:
 
         s.set("monkeys", 99)
         assert s.get("monkeys") == 99
+
+    def test_object_is_iterable_and_sorted(self):
+        s = SortedKeysDictionary({"b": 7, "a": 1})
+        actual = []
+
+        for item in s:
+            actual.append(item)
+
+        assert actual[0] == "a"
+        assert actual[1] == "b"
