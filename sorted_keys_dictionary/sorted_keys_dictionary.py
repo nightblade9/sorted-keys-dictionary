@@ -1,3 +1,6 @@
 class SortedKeysDictionary:
     def __init__(self, dictionary = None):
-        pass
+        if dictionary:
+            self._data = dict(dictionary)
+        else:
+            self._data = {}
