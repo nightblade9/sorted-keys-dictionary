@@ -34,10 +34,16 @@ class TestSortedKeysDictionary:
 
     def test_class_is_iterable_and_sorted(self):
         s = SortedKeysDictionary({"b": 7, "a": 1})
-        actual = []
-
-        for item in s:
-            actual.append(item)
+        actual = [item for item in s]
 
         assert actual[0] == "a"
         assert actual[1] == "b"
+
+    def test_adding_elements_maintains_sorted_order(self):
+        s = SortedKeysDictionary({"d": 7, "b": 1})
+        s.set("c", 0)
+        
+        actual = [item for item in s]
+        assert actual[0] == "b"
+        assert actual[1] == "c"
+        assert actual[2] == "d"
